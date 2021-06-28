@@ -12,6 +12,6 @@ A Basic chatbot using AWS Lex
 - **Slot** – An intent can require zero or more slots or parameters. For example, the OrderPizza intent requires slots such as pizza size, crust type, and number of pizzas.
  For example, you might create and use the following slot types for the OrderPizza intent:
  
-Size – With enumeration values Small, Medium, and Large.
-Crust – With enumeration values Thick and Thin.
-Count - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered
+  Size – With enumeration values Small, Medium, and Large.
+  Crust – With enumeration values Thick and Thin.
+  Count - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered

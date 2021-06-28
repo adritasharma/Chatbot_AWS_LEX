@@ -14,4 +14,9 @@ A Basic chatbot using AWS Lex
  
   Size – With enumeration values Small, Medium, and Large. </br>
   Crust – With enumeration values Thick and Thin.  </br>
-  Count - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered
+  Count - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered.
+  
+  
+## Lambda service to call data
+
+We are using node.js to build our service and using **serverless** package

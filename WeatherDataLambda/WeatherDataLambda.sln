@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherDataLambda", "WeatherDataLambda\WeatherDataLambda.csproj", "{505BA3CF-47A3-4E5C-A0D7-BD1B1344A49F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{505BA3CF-47A3-4E5C-A0D7-BD1B1344A49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505BA3CF-47A3-4E5C-A0D7-BD1B1344A49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505BA3CF-47A3-4E5C-A0D7-BD1B1344A49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505BA3CF-47A3-4E5C-A0D7-BD1B1344A49F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2F9AA26-ADD0-409A-B23D-D2422CF80767}
+	EndGlobalSection
+EndGlobal

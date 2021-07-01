@@ -60,11 +60,11 @@ namespace WeatherDataLambda
                 var countries = result.country.Select(x => x.country_id).ToList();
                 if (countries.Count > 0)
                 {
-                    countryResponse = countryResponse += string.Join(", ", countries);
+                    countryResponse = "Probable Nationality should be : " + string.Join(", ", countries);
                 }
                 else
                 {
-                    countryResponse = "";
+                    countryResponse = "Sorry, cannot predict Nationality";
                 }
             }
 

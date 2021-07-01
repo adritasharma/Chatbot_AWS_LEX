@@ -1,0 +1,114 @@
+body{
+    background-color: rgb(0, 103, 134);
+}
+h1 {
+    font-size: 3em;
+    color: rgb(0, 103, 134);
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: 2em;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  nav a:visited, a:link {
+    color: #607d8b;
+  }
+  nav a:hover {
+    color: #039be5;
+    background-color: #cfd8dc;
+  }
+  nav a.active {
+    color: #039be5;
+  }
+  
+body{
+    background-color: rgb(0, 103, 134);
+}
+.gold li {
+    position: relative;
+    background-color:lightgoldenrodyellow;
+    margin: .5em;
+    border-radius: 4px;
+    right:1.5em; 
+    list-style-type: none;
+  }
+.exp li {
+    position: relative;
+    background-color:lightsalmon;
+    margin: .5em;
+    border-radius: 4px;
+    right:1.5em; 
+    list-style-type: none;
+  }
+
+.links li {
+    position: relative;
+    cursor: pointer;
+    background-color:lightblue;
+    margin: .5em;
+    height: 1.6em;
+    right:3em;
+    border-radius: 4px;
+    list-style-type: none;
+  }
+  
+ .links li:hover {
+    color: darkgoldenrod;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .linkless li {
+    position: relative;
+    background-color:lightblue;
+    margin: .5em;
+    height: 1.6em;
+    right:3em;
+    border-radius: 4px;
+    list-style-type: none;
+  }  
+  
+  button {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+  }
+ .info{
+    display:inline-block;
+    border:1px solid #000;
+    padding:20px;
+  }
+
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  .alignleft {
+    float: left;
+  }
+  .alignright {
+    float: right;
+  }
+
+  /* ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #1E457C;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: #E4E8EB;
+}
+
+::ng-deep .mat-progress-bar {
+    border-radius: 2px;
+} */

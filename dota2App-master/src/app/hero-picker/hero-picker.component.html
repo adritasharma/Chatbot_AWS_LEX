@@ -1,0 +1,40 @@
+<div *ngIf="heroData" class="alignleft">
+  <h4>HeroData</h4>
+  <ul>
+    <div *ngFor="let hero of heroData">
+      <li> {{hero.localized_name}}
+        <button title="Select hero" (click)="selectHero(hero)"> Picked </button>
+        <button title="Banned hero" (click)="banHero(hero)"> Banned </button>
+      </li>
+    </div>
+  </ul>
+</div>
+
+<div *ngIf="selectedHeroes" class="alignright">
+  <h4>Selected Heroes Enemy</h4>
+  <ul>
+    <div *ngFor="let hero of selectedHeroes">
+      <li> {{hero.localized_name}}
+        <button title="Undo" (click)="undoEnemy(hero)"> Undo </button>
+      </li>
+    </div>
+  </ul>
+
+  <h4>Banned Heroes </h4>
+  <ul>
+    <div *ngFor="let hero of bannedHeroes">
+      <li> {{hero.localized_name}}
+        <button title="Undo" (click)="undoEnemy(hero)"> Undo </button>
+      </li>
+    </div>
+  </ul>
+  <p>Counter list</p>
+  <div *ngFor="let item of testMap | keyvalue">
+    <b> {{item.key}} </b> <b>{{item.value}}</b>
+  </div>
+</div>
+
+<div align="center">
+
+</div>
+<div style="clear: both;"></div>

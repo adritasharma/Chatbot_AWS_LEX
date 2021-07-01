@@ -1,0 +1,87 @@
+<div align="center">
+  <label>Match Id:
+    <input [(ngModel)]="matchId" placeholder="Match Id">
+    <button (click)="getMatchData()">Get Match Data</button>
+  </label>
+</div>
+
+
+
+<div *ngIf="result">
+  <h2 align="center">{{victory|uppercase}}</h2>
+  <h3>Match {{result.match_id}} details: </h3>
+  <ul>
+    <!--<li>Patch: {{result.patch}}</li>-->
+    <li>Skill Level: {{skill}}</li>
+    <li>First Blood Time: {{result.first_blood_time}} </li>
+    <li>Game Duration: {{result.duration}}</li>
+  </ul>
+
+
+  <h4> Barracks Status</h4>
+  <div id="textbox">
+    <p class="alignleft">Radiant: {{result.barracks_status_radiant}}</p>
+    <p class="alignright">Dire: {{result.barracks_status_dire}}</p>
+  </div>
+  <div style="clear: both;"></div>
+
+  <mat-progress-bar class="example-margin" [color]="colorBar1" [mode]="modeBar1" [value]="valueBar1">
+  </mat-progress-bar>
+
+  <h4> Tower Status</h4>
+  <div id="textbox">
+    <p class="alignleft">Radiant: {{result.tower_status_radiant}}</p>
+    <p class="alignright">Dire: {{result.tower_status_dire}}</p>
+  </div>
+  <div style="clear: both;"></div>
+
+
+  <mat-progress-bar class="example-margin" [color]="colorBar2" [mode]="modeBar2" [value]="valueBar2">
+  </mat-progress-bar>
+
+  <div align="center" *ngIf="result.radiant_xp_adv">
+    <h4>Team Experience Differences</h4>
+    <ul class="exp">
+      <div *ngFor="let xp of result.radiant_xp_adv">
+        <li>{{xp}}</li>
+      </div>
+    </ul>
+  </div>
+
+
+  <div align="center" *ngIf="result.radiant_gold_adv">
+    <h4>Team Gold Difference</h4>
+    <ul class="gold">
+      <div *ngFor="let gold of result.radiant_gold_adv">
+        <li>{{gold}}</li>
+      </div>
+    </ul>
+  </div>
+
+
+  <h3>Player Account ID:</h3>
+  <div *ngFor="let player of result.players">
+    <div *ngIf=player.account_id routerLink="/player-details/{{player.account_id}}">
+      <ul class="links">
+        <li>
+          Account ID: {{player.account_id}}
+        </li>
+      </ul>
+    </div>
+    <div *ngIf=!player.account_id>
+      <ul class="linkless">
+        <li>
+          Account ID: Unknown
+        </li>
+      </ul>
+    </div>
+    <ul class=info>
+      <li>Player Level: {{player.level}}</li>
+      <li>K|D|A: {{player.kills}}|{{player.deaths}}|{{player.assists}} </li>
+      <li>Last hits|Denies: {{player.last_hits}}|{{player.denies}} </li>
+      <li>Hero Damage|Hero Healing: {{player.hero_damage}}|{{player.hero_healing}}</li>
+      <li>Tower Damage:{{player.tower_damage}} </li>
+      <li>GPM|XPM: {{player.gold_per_min}}|{{player.xp_per_min}} </li>
+      <li *ngIf=player.actions_per_min>APM: {{player.actions_per_min}} </li>
+    </ul>
+  </div>

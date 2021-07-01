@@ -12,21 +12,21 @@ A Basic chatbot using AWS Lex
 - **Slot** – An intent can require zero or more slots or parameters. For example, the OrderPizza intent requires slots such as pizza size, crust type, and number of pizzas.
  For example, you might create and use the following slot types for the OrderPizza intent:
  
-  Size – With enumeration values Small, Medium, and Large. </br>
-  Crust – With enumeration values Thick and Thin.  </br>
-  Count - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered.
+  _Size_ – With enumeration values Small, Medium, and Large. </br>
+  _Crust_ – With enumeration values Thick and Thin.  </br>
+  _Count_ - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered.
   
   
 The project has 3 steps :
+
   
-  
-## Step 2: Create Lambda function 
+## Step 1: Create Lambda function 
 
 This function is used to fetch postal addresses baed on a Pincode
 
 This is a AWS Lambda (Serverless Functions). AWS Lambda can be plugged into Amzon Lex Intent to  act on it.
 
-To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project (.NET Core) is created .It is like Class Library .NET Core Project. AWS Nuget Packages Amazon.Lambda.Core, Amazon.Lambda.LexEvents and Amazon.Lambda.Serialization.Json have been used for Lambda functionality.
+To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project (.NET Core) is created . AWS Nuget Packages Amazon.Lambda.Core, ** Amazon.Lambda.LexEvents** and Amazon.Lambda.Serialization.Json have been used for Lambda functionality.
 
         public async Task<LexResponse> FunctionHandler(LexEvent lexEvent, ILambdaContext context)
         {
@@ -54,7 +54,6 @@ To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project 
             {
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(body);
                 var result = JsonSerializer.Deserialize<List<PostalAddress>>(body);
                 var postoffices = result.FirstOrDefault().PostOffice.ToList();
                 if (postoffices.Count > 0)
@@ -65,7 +64,6 @@ To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project 
                         + ", " + "State : " + postalInfo.State
                         + ", " + "Country : " + postalInfo.Country
                         + ", " + "Pincode : " + postalInfo.Pincode;
-
                 }
                 else
                 {
@@ -76,3 +74,12 @@ To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project 
             lexResponse.DialogAction.Message.Content = responseContent;
             return lexResponse;
         }
+        
+  ## Step 2: Create AWS Lex Chatbot
+  
+  - Go to Services -> Amazon Lex
+  - Select Version 1,  Go to Bots -> Create Bot -> Choose Custom Bot
+  - Add a Bot name ( eg: GetAddress), Language, Output voice as None -Text, Session timeout, IAM role etc.
+  - Create Intent -> Add a name (eg: Address)
+  - Add Sample Utterances (eg: Tell me the address, What is the address for the pincode {Pincode}) 
+  - Add slots - Name(eg: Pincode) , Slot type (eg: AMAZON.NUMBER), Prompt (eg: Sure, what is the Pincode) 

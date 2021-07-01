@@ -12,10 +12,13 @@ export class ChatbotComponent implements OnInit {
 
   
   constructor() { }
+
   lex: LexRuntime;
   userInput: string = "";
   messages: Message[] = [];
   lexResponse: string ="Hi, what would you like to do?";
+
+  waiting:boolean = false
   
   ngOnInit() {
     this.messages.push(new Message(this.lexResponse,"Bot"));

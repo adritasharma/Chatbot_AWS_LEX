@@ -122,3 +122,19 @@ Use the type definitions in tsconfig.app.json file
     
     (window as any).global = window;
 
+
+**Adding Credentials**
+
+Add IAM **accessKeyId** and **secretAccessKey** in environment.ts
+
+    export const environment = {
+      accessKeyId: "XXXXXXXXXXXXXXXXXXXXXX",
+      secretAccessKey: "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",
+      region: "us-xxxx-1",
+      botAlias: 'AddressBotVone', 
+      botName: 'GetAddress'
+    };
+
+**Generate the Component**
+
+

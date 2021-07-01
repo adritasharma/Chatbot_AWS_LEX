@@ -12,11 +12,129 @@ A Basic chatbot using AWS Lex
 - **Slot** – An intent can require zero or more slots or parameters. For example, the OrderPizza intent requires slots such as pizza size, crust type, and number of pizzas.
  For example, you might create and use the following slot types for the OrderPizza intent:
  
-  Size – With enumeration values Small, Medium, and Large. </br>
-  Crust – With enumeration values Thick and Thin.  </br>
-  Count - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered.
+  _Size_ – With enumeration values Small, Medium, and Large. </br>
+  _Crust_ – With enumeration values Thick and Thin.  </br>
+  _Count_ - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered.
   
   
-## Lambda service to call data
+The project has 3 steps :
 
-We are using node.js to build our service and using **serverless** package
+## Step 1 (a): Create AWS Lex Chatbot
+  
+**Step 1 (a)**
+
+  - Go to Services -> Amazon Lex
+  - Select Version 1,  Go to Bots -> Create Bot -> Choose Custom Bot
+  - Add a Bot name ( eg: GetAddress), Language, Output voice as None -Text, Session timeout, IAM role etc.
+  - Create Intent -> Add a name (eg: Address)
+  - Add Sample Utterances (eg: Tell me the address, What is the address for the pincode {Pincode}) 
+  - Add slots - Name(eg: Pincode) , Slot type (eg: AMAZON.NUMBER), Prompt (eg: Sure, what is the Pincode)
+  - Add Fulfillment - Select Return parameters to client for now. We will create a lambda function and add it to this in Step 1 (b)
+
+
+**Step 1 (b)**: Update Lex Fulfillment to use the Lambda function we create in **Step 2**
+
+- Go to the Lex Bot created
+- Choose Fulfillment as AWS Lambda function, Add Lambda function as the created one in Step 2 (here PostalAddress)
+- Save the Intent, Build and Test the Bot
+- Publish the bot, give an alias name (eg: AddressBotVone)
+  
+## Step 2: Create Lambda function 
+
+This function is used to fetch postal addresses baed on a Pincode
+
+This is a AWS Lambda (Serverless Functions). AWS Lambda can be plugged into Amzon Lex Intent to  act on it.
+
+To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project (.NET Core) is created . AWS Nuget Packages Amazon.Lambda.Core, ** Amazon.Lambda.LexEvents** and Amazon.Lambda.Serialization.Json have been used for Lambda functionality.
+
+        public async Task<LexResponse> FunctionHandler(LexEvent lexEvent, ILambdaContext context)
+        {
+            string pincode = lexEvent.CurrentIntent.Slots["Pincode"];
+            var responseContent = "";
+            var lexResponse = new LexResponse();
+            lexResponse.DialogAction = new LexResponse.LexDialogAction
+            {
+                Type = "Close",
+                FulfillmentState = "Fulfilled",
+                Message = new LexResponse.LexMessage
+                {
+                    ContentType = "PlainText",
+                    Content = ""
+                }
+            };
+
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://api.postalpincode.in/pincode/" + pincode),
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<List<PostalAddress>>(body);
+                var postoffices = result.FirstOrDefault().PostOffice.ToList();
+                if (postoffices.Count > 0)
+                {
+                    var postalInfo = postoffices[0];
+                    responseContent = "Post Offices : " + string.Join(", ", postoffices.Select(x => x.Name).ToList())
+                        + ", " + "District : " + postalInfo.District
+                        + ", " + "State : " + postalInfo.State
+                        + ", " + "Country : " + postalInfo.Country
+                        + ", " + "Pincode : " + postalInfo.Pincode;
+                }
+                else
+                {
+                    responseContent = "No records found.";
+                }
+            }
+
+            lexResponse.DialogAction.Message.Content = responseContent;
+            return lexResponse;
+        }
+        
+**Uploading Lambda Function**
+
+- Right-Click on Project node and then choosing Publish to AWS Lambda.
+- In the Upload Lambda Function window, enter a name for the function, or select a previously published function to republish.
+- Set Handler as "Assembly::Namespace.Class::Function"
+- Set other details like IAM Role, Memory etc. and upload
+- Test the Lambda function in AWS Console
+        
+
+
+
+
+## Step 3: Create an Angular UI for the chat functionality
+
+**Initialisation**
+
+Install AWS-SDK that gives type definitions for node.
+
+    npm install aws-sdk
+    
+Use the type definitions in tsconfig.app.json file
+
+    "types": ["node"]
+    
+ Global needs to be defined in the polyfill.ts file
+    
+    (window as any).global = window;
+
+
+**Adding Credentials**
+
+Add IAM **accessKeyId** and **secretAccessKey** in environment.ts
+
+    export const environment = {
+      accessKeyId: "XXXXXXXXXXXXXXXXXXXXXX",
+      secretAccessKey: "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",
+      region: "us-xxxx-1",
+      botAlias: 'AddressBotVone', 
+      botName: 'GetAddress'
+    };
+
+**Generate the Component**
+
+

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\WeatherDataLambda\\WeatherDataLambda\\WeatherDataLambda.csproj": {}
+    "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\PostalAddressLambda\\PostalAddressLambda\\PostalAddressLambda.csproj": {}
   },
   "projects": {
-    "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\WeatherDataLambda\\WeatherDataLambda\\WeatherDataLambda.csproj": {
+    "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\PostalAddressLambda\\PostalAddressLambda\\PostalAddressLambda.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\WeatherDataLambda\\WeatherDataLambda\\WeatherDataLambda.csproj",
-        "projectName": "WeatherDataLambda",
-        "projectPath": "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\WeatherDataLambda\\WeatherDataLambda\\WeatherDataLambda.csproj",
+        "projectUniqueName": "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\PostalAddressLambda\\PostalAddressLambda\\PostalAddressLambda.csproj",
+        "projectName": "PostalAddressLambda",
+        "projectPath": "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\PostalAddressLambda\\PostalAddressLambda\\PostalAddressLambda.csproj",
         "packagesPath": "C:\\Users\\adrit\\.nuget\\packages\\",
-        "outputPath": "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\WeatherDataLambda\\WeatherDataLambda\\obj\\",
+        "outputPath": "C:\\Adrita\\Workspace\\GitHub\\Projects\\Chatbot_AWS_LEX\\PostalAddressLambda\\PostalAddressLambda\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

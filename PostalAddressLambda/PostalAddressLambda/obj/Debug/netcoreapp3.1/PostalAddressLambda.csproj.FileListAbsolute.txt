@@ -1,0 +1,16 @@
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\bin\Debug\netcoreapp3.1\PostalAddressLambda.deps.json
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\bin\Debug\netcoreapp3.1\PostalAddressLambda.runtimeconfig.json
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\bin\Debug\netcoreapp3.1\PostalAddressLambda.runtimeconfig.dev.json
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\bin\Debug\netcoreapp3.1\PostalAddressLambda.dll
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\bin\Debug\netcoreapp3.1\Amazon.Lambda.Core.dll
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\bin\Debug\netcoreapp3.1\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\obj\Debug\netcoreapp3.1\PostalAddressLambda.csprojAssemblyReference.cache
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\obj\Debug\netcoreapp3.1\PostalAddressLambda.AssemblyInfoInputs.cache
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\obj\Debug\netcoreapp3.1\PostalAddressLambda.AssemblyInfo.cs
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\obj\Debug\netcoreapp3.1\PostalAddressLambda.csproj.CopyComplete
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\obj\Debug\netcoreapp3.1\PostalAddressLambda.genruntimeconfig.cache
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\bin\Debug\netcoreapp3.1\PostalAddressLambda.pdb
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\bin\Debug\netcoreapp3.1\Amazon.Lambda.LexEvents.dll
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\obj\Debug\netcoreapp3.1\PostalAddressLambda.csproj.CoreCompileInputs.cache
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\obj\Debug\netcoreapp3.1\PostalAddressLambda.dll
+C:\Users\adrit\source\repos\PostalAddressLambda\PostalAddressLambda\obj\Debug\netcoreapp3.1\PostalAddressLambda.pdb

@@ -21,6 +21,8 @@ The project has 3 steps :
 
 ## Step 1 (a): Create AWS Lex Chatbot
   
+**Step 1 (a)**
+
   - Go to Services -> Amazon Lex
   - Select Version 1,  Go to Bots -> Create Bot -> Choose Custom Bot
   - Add a Bot name ( eg: GetAddress), Language, Output voice as None -Text, Session timeout, IAM role etc.
@@ -29,6 +31,13 @@ The project has 3 steps :
   - Add slots - Name(eg: Pincode) , Slot type (eg: AMAZON.NUMBER), Prompt (eg: Sure, what is the Pincode)
   - Add Fulfillment - Select Return parameters to client for now. We will create a lambda function and add it to this in Step 1 (b)
 
+
+**Step 1 (b)**: Update Lex Fulfillment to use the Lambda function we create in **Step 2**
+
+- Go to the Lex Bot created
+- Choose Fulfillment as AWS Lambda function, Add Lambda function as the created one in Step 2 (here PostalAddress)
+- Save the Intent, Build and Test the Bot
+- Publish the bot, give an alias name (eg: AddressBotVone)
   
 ## Step 2: Create Lambda function 
 
@@ -94,13 +103,22 @@ To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project 
 - Test the Lambda function in AWS Console
         
 
-## Step 1 (b): Update Lex Fulfillment tu use the Lambda function we created
 
-- Go to the Lex Bot created
-- Choose Fulfillment as AWS Lambda function, Add Lambda function as the created one in Step 2 (here PostalAddress)
-- Save the Intent, Build and Test the Bot
-- Publish the bot, give an alias name (eg: AddressBotVone)
 
 
 ## Step 3: Create an Angular UI for the chat functionality
+
+**Initialisation**
+
+Install AWS-SDK that gives type definitions for node.
+
+    npm install aws-sdk
+    
+Use the type definitions in tsconfig.app.json file
+
+    "types": ["node"]
+    
+ Global needs to be defined in the polyfill.ts file
+    
+    (window as any).global = window;
 

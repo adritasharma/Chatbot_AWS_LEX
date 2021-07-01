@@ -24,29 +24,30 @@ namespace PostalAddressLambda
         /// <returns></returns>
         /// Sample Request
 
-// {
-//  "messageVersion": "1.0",
-//  "invocationSource": "DialogCodeHook",
-//  "userId": "John",
-//  "sessionAttributes": {},
-//  "bot": {
-//    "name": "MakeAppointment",
-//    "alias": "$LATEST",
-//    "version": "$LATEST"
-//  },
-//  "outputDialogMode": "Text",
-//  "currentIntent": {
-//    "name": "Address",
-//    "slots": {
-//      "Pincode": "712136"
-//    },
-//    "confirmationStatus": "None"
-//  }
-//}
-    public async Task<LexResponse> FunctionHandler(LexEvent lexEvent, ILambdaContext context)
+        // {
+        //  "messageVersion": "1.0",
+        //  "invocationSource": "DialogCodeHook",
+        //  "userId": "John",
+        //  "sessionAttributes": {},
+        //  "bot": {
+        //    "name": "MakeAppointment",
+        //    "alias": "$LATEST",
+        //    "version": "$LATEST"
+        //  },
+        //  "outputDialogMode": "Text",
+        //  "currentIntent": {
+        //    "name": "Address",
+        //    "slots": {
+        //      "Pincode": "712136"
+        //    },
+        //    "confirmationStatus": "None"
+        //  }
+        //}
+        public async Task<LexResponse> FunctionHandler(LexEvent lexEvent, ILambdaContext context)
         {
             string pincode = lexEvent.CurrentIntent.Slots["Pincode"];
-            var countryResponse = "";
+            Console.WriteLine("Pincode: " + pincode);
+            var responseContent = "";
             var lexResponse = new LexResponse();
             lexResponse.DialogAction = new LexResponse.LexDialogAction
             {
@@ -70,25 +71,32 @@ namespace PostalAddressLambda
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(body);
-                var result = JsonSerializer.Deserialize<List<PostalAddress>>(body);
-                var postoffices = result.FirstOrDefault().PostOffice.ToList();
-                if (postoffices.Count > 0)
+                try
                 {
-                    var postalInfo = postoffices[0];
-                    countryResponse = "Post Offices : " + string.Join(", ", postoffices.Select(x => x.Name).ToList())
-                        + ", " + "District : " + postalInfo.District
-                        + ", " + "State : " + postalInfo.State
-                        + ", " + "Country : " + postalInfo.Country
-                        + ", " + "Pincode : " + postalInfo.Pincode;
+                    var result = JsonSerializer.Deserialize<List<PostalAddress>>(body);
+                    var postoffices = result.FirstOrDefault().PostOffice.ToList();
+                    if (postoffices.Count > 0)
+                    {
+                        var postalInfo = postoffices[0];
+                        responseContent = "Post Offices : " + string.Join(", ", postoffices.Select(x => x.Name).ToList())
+                            + ", " + "District : " + postalInfo.District
+                            + ", " + "State : " + postalInfo.State
+                            + ", " + "Country : " + postalInfo.Country
+                            + ", " + "Pincode : " + postalInfo.Pincode;
 
+                    }
+                    else
+                    {
+                        responseContent = "No records found.";
+                    }
                 }
-                else
+                catch
                 {
-                    countryResponse = "No records found.";
+                    responseContent = "Couldn't find records";
                 }
             }
 
-            lexResponse.DialogAction.Message.Content = countryResponse;
+            lexResponse.DialogAction.Message.Content = responseContent;
             return lexResponse;
         }
     }

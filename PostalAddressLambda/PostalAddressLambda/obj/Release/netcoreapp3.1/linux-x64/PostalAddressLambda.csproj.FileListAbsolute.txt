@@ -1,0 +1,16 @@
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\bin\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.deps.json
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\bin\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.runtimeconfig.json
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\bin\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.runtimeconfig.dev.json
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\bin\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.dll
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\bin\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.pdb
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\bin\Release\netcoreapp3.1\linux-x64\Amazon.Lambda.Core.dll
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\bin\Release\netcoreapp3.1\linux-x64\Amazon.Lambda.LexEvents.dll
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\bin\Release\netcoreapp3.1\linux-x64\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\obj\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.csprojAssemblyReference.cache
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\obj\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.csproj.CoreCompileInputs.cache
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\obj\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.AssemblyInfoInputs.cache
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\obj\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.AssemblyInfo.cs
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\obj\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.csproj.CopyComplete
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\obj\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.dll
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\obj\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.pdb
+C:\Adrita\Workspace\GitHub\Projects\Chatbot_AWS_LEX\PostalAddressLambda\PostalAddressLambda\obj\Release\netcoreapp3.1\linux-x64\PostalAddressLambda.genruntimeconfig.cache

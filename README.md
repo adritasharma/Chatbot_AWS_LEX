@@ -1,5 +1,6 @@
 # Chatbot_AWS_LEX
-A Basic chatbot using AWS Lex
+
+A Basic chatbot using AWS Lex Service. This demo bot provides address for a given pincode that is provided by the user on the chat/
 
 ### Terminologies
 
@@ -17,6 +18,17 @@ A Basic chatbot using AWS Lex
   _Count_ - Amazon Lex also provides built-in slot types. For example, AMAZON.NUMBER is a built-in slot type that you can use for the number of pizzas ordered.
   
   
+### Setting up AWS in Windows system
+
+ - Go to Servces -> IAM , Create an IAM user and attach policy  **AdministratorAccess**. Go to Security Credentials Tab and create Access key
+ - Create profile in our Windows System. Go to Users root directory (type %USERPROFILE%). Create folder .aws.. Add file credentials
+
+```
+[default]
+aws_access_key_id = XXXXXXXXXXXXXXXXXXXXXX
+aws_secret_access_key = YYYYYYYYYYYYYYYYYY
+```
+
 The project has 3 steps :
 
 ## Step 1 (a): Create AWS Lex Chatbot
@@ -41,11 +53,11 @@ The project has 3 steps :
   
 ## Step 2: Create Lambda function 
 
-This function is used to fetch postal addresses baed on a Pincode
+This function is used to fetch postal addresses baed on a Pincode. I have used a public postalpincode API.
 
 This is a AWS Lambda (Serverless Functions). AWS Lambda can be plugged into Amzon Lex Intent to  act on it.
 
-To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project (.NET Core) is created . AWS Nuget Packages Amazon.Lambda.Core, ** Amazon.Lambda.LexEvents** and Amazon.Lambda.Serialization.Json have been used for Lambda functionality.
+To create Lamda project,  AWS Toolkit for Visual Studio is  and  Lambda Project (.NET Core) is created . AWS Nuget Packages Amazon.Lambda.Core, **Amazon.Lambda.LexEvents** and Amazon.Lambda.Serialization.Json have been used for Lambda functionality.
 
         public async Task<LexResponse> FunctionHandler(LexEvent lexEvent, ILambdaContext context)
         {

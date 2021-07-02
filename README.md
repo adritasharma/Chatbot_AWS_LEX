@@ -1,6 +1,6 @@
 # Chatbot_AWS_LEX
 
-A Basic chatbot using AWS Lex Service. This demo bot provides address for a given pincode that is provided by the user on the chat/
+A Basic chatbot using AWS Lex Service. This demo bot provides address for a given pincode that is provided by the user on the chat.
 
 ### Terminologies
 

@@ -137,4 +137,40 @@ Add IAM **accessKeyId** and **secretAccessKey** in environment.ts
 
 **Generate the Component**
 
+    import { LexRuntime } from 'aws-sdk';
+    
+    lex: LexRuntime;
+
+    postLexText() {
+       
+        var params = {
+          botAlias: environment.botAlias,
+          botName: environment.botName,
+          inputText: 'Testing',
+          userId: 'User'
+        };
+
+        this.lex = new LexRuntime({
+          accessKeyId: environment.accessKeyId,
+          secretAccessKey: environment.secretAccessKey,
+          region: environment.region
+        });
+        
+        params.inputText = this.userInput;
+        
+        this.lex.postText(params, (err, data) => {
+          if (err) {
+            console.log(err, err.stack); // an error occurred
+          }
+          else {
+            console.log("response:", data) // successful response
+            this.lexResponse = data.message;
+          }
+          this.messages.push(new ChatMessage(this.userInput, Sender.User));
+          this.userInput = "";
+          this.messages.push(new ChatMessage(this.lexResponse, Sender.Bot));
+        });
+    }
+
+
 
